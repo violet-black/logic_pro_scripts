@@ -33,5 +33,7 @@ function HandleMIDI(event) {
 			event.channel = GetParameter("Channel");
 			event.send();
 		}
+	} else {
+	    event.send();
 	}
 }
