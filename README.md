@@ -11,6 +11,12 @@ and then "Save As" in the plugin menu to save it to your preset folder.
 
 ## Scripts
 
+### MidiCCToPluginParam
+
+[MidiCCToPluginParam](/scripts/MidiCCToPluginParam.js) allows you to remap a midi CC message to a plugin parameter.
+You can specify more than one destination for the same CC. To increase the maximum number of slots open the script and
+change the `NUMBER` value.
+
 ### MidiChModifier
 
 [MidiChModifier](/scripts/MidiChModifier.js) allows you to re-route midi CC messages dynamically from one MIDI channel
