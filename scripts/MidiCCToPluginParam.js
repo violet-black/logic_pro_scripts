@@ -6,7 +6,15 @@ var Sources = new Array();
 var Destinations = new Map();
 
 var PluginParameters = [
-    {
+	{
+        name: "Channel",
+        type: "lin",
+        defaultValue: 1,
+        minValue: 1,
+        maxValue: 16,
+        numberOfSteps: 15
+	},
+	{
         name: "Thru",
         type: "checkbox",
         defaultValue: 0
@@ -59,6 +67,7 @@ function ParameterChanged(param, value) {
 
 function HandleMIDI(event) {
 	if (event instanceof ControlChange) {
+	    if (GetParameter("Channel") == event.channel) {
 	    for (var n = 0; n < Sources.length; n++) {
 	    	    var src = Sources[n];
 	        if (src.enabled && src.value == event.number) {
@@ -68,8 +77,9 @@ function HandleMIDI(event) {
 		        	new_event.send();
 	        }
 	    }
-	    if (PluginParameters[0].value) {  // MIDI_THRU
+	    if (GetParameter("Thru")) {  // MIDI_THRU
 	        event.send();
+	    }
 	    }
 	} else {
 	    event.send();
