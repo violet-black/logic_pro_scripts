@@ -1,4 +1,6 @@
 // Remap MIDI CC to plugin parameters or other CC.
+//
+// Set NUMBER for more slots.
 
 const NUMBER = 6;
 

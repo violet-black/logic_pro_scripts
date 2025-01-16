@@ -1,10 +1,8 @@
-// Switch channel dynamically with MIDI CC
+// Switch MIDI channel dynamically with CC
 //
-// Ch. Switch CC - CC message to switch the MIDI channel, CC#0 by default
-// Channel - channel to re-route other CC messages to
-//
-// This function can be used to send CC to different synth layers
-// when you are controlling a multi-layered synth
+// Ch. Switch CC - CC message to switch the MIDI channel, CC#0 (bank) by default
+// Channel - channel to re-route CC messages to
+// All - re-route all events including notes, aftertouch, etc.
 
 var PluginParameters = [
     {
