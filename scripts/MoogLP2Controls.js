@@ -1,14 +1,14 @@
 /*
-Moog LP Stage II advanced controls.
+Moog LP Stage II controls
 
-A simple remote controls for Moog LP advanced and global params.
+v.1
+Updates: https://github.com/violet-black/logic_pro_scripts/blob/master/scripts/MoogLP2Controls.js
 
-The tuning names are hardcoded for myself. You have to modify 'tunings' names
-for your own names.
-
+Allows you to control various parameters hidden in the menus.
+Replace `TUNINGS` values with different names if needed.
 */
 
-var tunings = [
+const TUNINGS = [
   "STANDARD", "HARMONIC", "PYTHAGOREAN", "1/3 MEANTONE", "1/4 MEANTONE",
   "5-LIMIT", "WERCK VI", "7EDO", "CENTAUR", "9EDO", "10EDO", "11EDO",
   "ZETA", "13EDO", "LYRICAL", "15", "16", "17", "18", "19EDO",
@@ -23,7 +23,7 @@ var PluginParameters = [
   {
     name:"Tuning",
     type: "menu",
-    valueStrings: tunings,
+    valueStrings: TUNINGS,
     cc: 113,
     ccMod: 1
   },
@@ -47,6 +47,13 @@ var PluginParameters = [
     valueStrings: ["0", "-2", "-3", "-4", "-5", "-7", "-12"],
     cc: 108,
     ccMod: 16
+  },
+    {
+    name:"Glide on",
+    type: "checkbox",
+    defaultValue: 0,
+    cc: 65,
+    ccMod: 64
   },
   {
     name:"Glide retrig",
@@ -112,9 +119,16 @@ var PluginParameters = [
   // modulation
 
   {
+    name:"MOD source",
+    type: "menu",
+    valueStrings: ["TRI", "SQUARE", "SAW", "RAMP", "SRC5", "SRC6"],
+    cc: 68,
+    ccMod: 16
+  },
+  {
     name:"MOD 5th source",
     type: "menu",
-    valueStrings: ["FLT", "S&H"],
+    valueStrings: ["FLT ENV", "S&H"],
     cc: 104,
     ccMod: 64
   },
@@ -124,6 +138,13 @@ var PluginParameters = [
     valueStrings: ["OSC2", "NOISE"],
     cc: 105,
     ccMod: 64
+  },
+  {
+    name:"MOD 1st dest",
+    type: "menu",
+    valueStrings: ["PITCH", "FLT", "WAVE", "OSC2"],
+    cc: 69,
+    ccMod: 16
   },
   {
     name:"MOD 2nd dest",
@@ -240,7 +261,7 @@ for (const param of PluginParameters) {
 
 function ParameterChanged(param, value) {
   param = PluginParameters[param];
-  if (_currentCC && param.cc == _currentCC.number && value == _currentCC.value) {
+  if (_currentCC && param.cc === _currentCC.number && value === _currentCC.value) {
     // do not send back the same event
     return;
   }

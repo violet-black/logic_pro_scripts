@@ -32,7 +32,7 @@ switch between layers quickly.
 
 [MoogLP2Controls](/scripts/MoogLP2Controls.js) is a controller for [Moog Little Phatty State II](https://www.moogmusic.com/products/little-phatty-stage-ii)
 synth. It doesn't implement all the params, but only those hidden in the menu (filter type, tuning scales, arp params, etc).
-It can be useful to escape some deep menu diving on this synth.
+It can be useful to escape some deep menu diving on this synth. Replace `TUNINGS` values with different names if needed.
 
 ## Examples
 
