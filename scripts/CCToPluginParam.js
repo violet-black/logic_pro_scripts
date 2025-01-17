@@ -1,7 +1,7 @@
 /* Remap MIDI CC to plugin parameters or other CC.
 
 v.1
-Updates: https://github.com/violet-black/logic_pro_scripts/blob/master/scripts/CCToPluginParam.js
+Updates: https://github.com/viovar-black/logic_pro_scripts/blob/master/scripts/CCToPluginParam.js
 
 Set NUMBER for more slots.
 */
@@ -37,7 +37,7 @@ for (var n = 0; n < NUMBER; n++) {
         defaultValue: 1,
         p_type: "src",
         p_id: n,
-        enabled: true
+        enabled: false
     }
     var dest = {
         name: "CC_" + n + "_DEST",
@@ -79,7 +79,7 @@ function HandleMIDI(event) {
                     new_event.send();
                 }
             }
-            if (GetParameter("Thru")) {  // MIDI_THRU
+            if (GetParameter("Thru")) {
                 event.send();
             }
         }

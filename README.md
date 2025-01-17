@@ -11,11 +11,20 @@ and then "Save As" in the plugin menu to save it to your preset folder.
 
 ## Scripts
 
+### CCMixer
+
+[CCMixer](/scripts/CCMixer.js) is a mixer which merges two incoming CCs into one and sends it to a plugin parameter or CC.
+This script may be useful when you have a plugin which doesn't have modulations, yet you
+want to use both a knob to adjust a value and the modwheel to modulate the same value.
+
+To increase the maximum number of mixing slots open the script and change `NUMBER` value.
+
 ### CCToPluginParam
 
 [CCToPluginParam](/scripts/CCToPluginParam.js) allows you to remap a midi CC message to a plugin parameter.
-You can specify more than one destination for the same CC. To increase the maximum number of slots open the script and
-change the `NUMBER` value.
+You can specify more than one destination for the same CC.
+
+To increase the maximum number of slots open the script and change `NUMBER` value.
 
 ### MidiChannelSwitcher
 
@@ -32,7 +41,9 @@ switch between layers quickly.
 
 [MoogLP2Controls](/scripts/MoogLP2Controls.js) is a controller for [Moog Little Phatty State II](https://www.moogmusic.com/products/little-phatty-stage-ii)
 synth. It doesn't implement all the params, but only those hidden in the menu (filter type, tuning scales, arp params, etc).
-It can be useful to escape some deep menu diving on this synth. Replace `TUNINGS` values with different names if needed.
+It can be useful to escape some deep menu diving on this synth.
+
+To change tuning names to your own tunings open the script and modify `TUNINGS` list.
 
 ## Examples
 
